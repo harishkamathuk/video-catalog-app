@@ -1,4 +1,4 @@
-from video_scan.validation_strategy import VideoValidationStrategy
+from app.video_scan.validation_strategy import VideoValidationStrategy
 import os
 
 
