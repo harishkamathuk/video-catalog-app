@@ -94,3 +94,27 @@ video_catalog/
 
 9. **`.gitignore`:**  
    Keeps virtual environments, build artifacts, and unnecessary files out of version control.
+
+### 📝 **Steps to Define Database Schema**
+
+#### 1. **Identify Metadata Requirements**
+
+Video metadata should include:
+
+- **File Information:**
+  - `id` (Primary Key)
+  - `file_name` (Name of the video file)
+  - `file_path` (Full path to the video)
+  - `file_size` (File size in bytes)
+  - `created_at` (File creation timestamp)
+  - `modified_at` (Last modification timestamp)
+
+- **Video-Specific Information:**
+  - `duration` (Length of the video in seconds)
+  - `resolution` (Width x Height)
+  - `frame_rate` (Frames per second)
+  - `codec` (Video codec used)
+  - `bitrate` (Video bitrate in kbps)
+
+- **Thumbnails:**
+  - `thumbnail_path` (Path to the generated thumbnail(s), if applicable)
