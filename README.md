@@ -1,101 +1,106 @@
+# Video Catalog & Management Application
 
-# 🎥 Video Catalog & Management Application
+## 📖 **Project Overview**
 
-## 🚀 Overview
-Welcome to the **Video Catalog & Management Application** repository!  
-This application will allow users to catalog, view, and manage videos stored on their desktop. Key features will include:
-
-- Batch metadata scanning for videos.
-- Automatic thumbnail generation for previews.
-- A GUI for viewing and streaming videos from the catalog.
-- Machine learning capabilities to identify potential duplicate videos.
-
-## 🛠️ Features
-### 1. Batch Video Processing
-- Scan a designated folder to extract metadata from videos.
-- Generate 2-3 thumbnails for quick previews during import.
-
-### 2. GUI
-- A front-end interface for seamless video browsing.
-- Streaming functionality integrated into the app.
-
-### 3. Machine Learning
-- ML-based analysis to detect duplicates based on file attributes, metadata, or content similarity.
-
-## 💻 Tech Stack
-The **Video Catalog App** will utilize the following:
-
-- **Python** for backend logic.
-- **GUI Libraries:** Options include [Tkinter](https://wiki.python.org/moin/TkInter) or frameworks like [PyQt/PySide](https://riverbankcomputing.com/software/pyqt/intro) for the GUI interface.
-- **Database:** SQLite or another ORM solution to store video metadata.
-- **Machine Learning:** Open-source ML libraries like `scikit-learn`, `TensorFlow`, or `PyTorch`.
+The Video Catalog & Management Application is designed to organize, search, and stream video files stored on a desktop. It provides an intuitive GUI, batch processing for metadata extraction, and machine learning capabilities for duplicate detection. This application aims to simplify video file management by offering features like thumbnail generation, advanced filtering, and video previews.
 
 ---
 
-## 🏗️ Setup Instructions
+## 🎯 **Project Goals**
+
+- **Batch Processing:** Automatically scan a folder, extract metadata from video files, and generate thumbnails for easy previews.
+- **GUI Interface:** Provide an intuitive interface for viewing, searching, and streaming videos.
+- **Duplicate Detection:** Use machine learning techniques to identify potential duplicate videos based on metadata or content similarity.
+- **Streaming Previews:** Enable users to stream video previews directly within the application.
+
+---
+
+## 🚀 **Getting Started**
+
+Follow the steps below to set up the project on your local machine:
 
 ### 1. Clone the Repository
-```bash
-git clone https://github.com/YOUR_USERNAME/video-catalog-app.git
-cd video-catalog-app
-```
 
----
+```bash
+git clone https://github.com/yourusername/video-catalog.git
+cd video-catalog
+```
 
 ### 2. Set Up a Virtual Environment
+
+It is recommended to use a virtual environment to manage dependencies:
+
 ```bash
+
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate    # On Windows: venv\Scripts\activate
 ```
 
----
-
 ### 3. Install Dependencies
-Once the virtual environment is active:
+
+Use the `requirements.txt` file to install the necessary dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-### 4. Run the Application
-After setup:
+## ⚙️ **Environment Setup**
+
+1. Ensure Python 3.8+ is installed on your system.
+2. Install the following key dependencies:
+   - `PyQt5` for the GUI.
+   - `SQLAlchemy` for database interaction.
+   - `ffmpeg-python` and `moviepy` for video metadata extraction and thumbnail generation.
+   - `scikit-learn` and `opencv-python-headless` for machine learning workflows.
+
+3. Verify your setup by running:
+
 ```bash
 python main.py
 ```
 
----
-
-## 📝 Dependencies
-Dependencies will include packages for database, GUI, and ML support. These will be stored in the `requirements.txt` file.
-
-Example packages might include:
-- `PyQt5`
-- `scikit-learn`
-- `opencv-python`
-- `sqlalchemy`
-- `pandas`
+   This will initialize the application (replace with your actual command as features are implemented).
 
 ---
 
-## 📊 Project Structure
-The repository will follow a modular and scalable pattern:
+## 📂 **Folder Structure**
 
-```
-/video-catalog-app
+```plaintext
+video_catalog/
 │
-├── main.py                  # Entry point for launching the app.
-├── /assets                  # Images, icons, and thumbnails for the GUI.
-├── /database                # Database handling and schema definitions.
-├── /ml                      # ML models and algorithms for duplicate detection.
-├── /gui                     # GUI interface components.
+├── main.py                     # Application entry point.
+├── requirements.txt            # List of dependencies.
+├── .gitignore                  # Git ignored files.
 │
-├── requirements.txt         # Python dependencies.
-└── README.md                # Project documentation.
+├── database/                   # Database schema and ORM logic.
+├── gui/                        # GUI components.
+├── ml/                         # Machine learning pipelines.
+├── utils/                      # Helper utilities.
+├── assets/                     # Static assets like icons and thumbnails.
+├── tests/                      # Unit tests.
 ```
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+## 📌 **Contributing**
 
+We welcome contributions! If you’d like to add features or fix issues, feel free to:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Submit a pull request.
+
+---
+
+## 🛠️ **Future Enhancements**
+
+- Implement advanced filtering and tagging for videos.
+- Add support for cloud-based video storage.
+- Extend ML capabilities to include video content analysis.
+
+---
+
+## 📧 **Contact**
+
+For any questions or suggestions, feel free to reach out at [circus-aching-exes_at_duck.com].
