@@ -1,25 +1,43 @@
-from dal.database import initialize_database, SessionLocal, engine
-from models.video import Base, Video
-import os
+from app import VideoScanApp
+from dal.database import SessionLocal
+from models.video import Video
 
 
-if __name__ == "__main__":
-    # Initialize database schema
-    initialize_database(Base)
-
-    # Example: Create a new video object (business logic layer)
-    with SessionLocal() as session:
+def add_video_to_db(file_path: str):
+    """
+    Adds a valid video file to the database.
+    Args:
+        file_path (str): Path of the video file to add to the database.
+    """
+    session = SessionLocal()
+    try:
         new_video = Video(
-            file_name="example.mp4",
-            file_path="/path/to/example.mp4",
-            file_size=102400,
-            duration=300.0,
-            resolution="1920x1080",
-            frame_rate=30.0,
-            codec="H.264",
-            bitrate=4500,
-            thumbnail_path="/path/to/thumbnail.png",
+            file_name=file_path.split("/")[-1],
+            file_path=file_path,
+            file_size=os.path.getsize(file_path),
+            duration=0.0,  # Placeholder; compute duration if needed
+            resolution="Unknown",  # Placeholder
+            frame_rate=0.0,  # Placeholder
+            codec="Unknown",  # Placeholder
+            bitrate=0,  # Placeholder
+            thumbnail_path="Unknown",
         )
         session.add(new_video)
         session.commit()
-        print("Video added to the database.")
+        print(f"Video successfully added to database: {file_path}")
+    except Exception as e:
+        print(f"Could not add to database: {e}")
+    finally:
+        session.close()
+
+
+if __name__ == "__main__":
+    app = VideoScanApp()
+    # User inputs directory path
+    directory_to_scan = input(
+        "Please input the directory path to scan for video files: "
+    ).strip()
+    print("Scanning directory...")
+    for video_file in app.execute_and_get_video_files(directory_to_scan):
+        # Add the video to database if it's valid
+        add_video_to_db(video_file)
