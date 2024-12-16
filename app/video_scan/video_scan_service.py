@@ -1,7 +1,10 @@
 import os
-from video_repository import VideoRepository
-from exceptions import VideoAlreadyExistsError
+from app.video_scan.video_repository import VideoRepository
+from app.video_scan.extension_strategy import ExtensionValidationStrategy
+from utils.directory_scanner import DirectoryScanner
+from app.exceptions.video_exceptions import VideoAlreadyExistsError
 from dal.database import SessionLocal
+
 
 
 class VideoScanApp:

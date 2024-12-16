@@ -1,9 +1,11 @@
 import sys
+import os
+
+# Add the root directory to Python's search path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dal.database import initialize_database, Base
 from app.video_scan.video_scan_service import VideoScanApp
-
-
 
 if __name__ == "__main__":
     try:
