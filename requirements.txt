@@ -1,0 +1,6 @@
+PyQt5
+SQLAlchemy
+ffmpeg-python
+moviepy
+scikit-learn
+opencv-python-headless
