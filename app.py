@@ -1,5 +1,5 @@
-from video_scan.directory_scanner import DirectoryScanner
-from video_scan.extension_strategy import ExtensionValidationStrategy
+from utils.directory_scanner import DirectoryScanner
+from app.video_scan.extension_strategy import ExtensionValidationStrategy
 from models.video import Video
 from dal.database import SessionLocal
 import os
