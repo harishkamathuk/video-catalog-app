@@ -4,3 +4,4 @@ ffmpeg-python
 moviepy
 scikit-learn
 opencv-python-headless
+alembic
