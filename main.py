@@ -1,14 +1,28 @@
+import os
+import logging
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Retrieve and validate required environment variables
+LOG_LEVEL = os.getenv("LOG_LEVEL")
+if not LOG_LEVEL:
+    raise EnvironmentError("LOG_LEVEL environment variable is required but not set.")
+
+# Configure logging
+logging.basicConfig(level=getattr(logging, LOG_LEVEL.upper(), logging.INFO))
+
+# Your existing imports and logic
 from app import VideoScanApp
-from models.video import Video  # Import the model to ensure it is registered
-from dal.database import initialize_database, Base, engine
-import sys
+from dal.database import initialize_database, Base
 
 if __name__ == "__main__":
     try:
-        # Initialize database and ensure tables exist
+        # Initialize database
         initialize_database(Base)
 
-        # Execute application logic
+        # Run application logic
         app = VideoScanApp()
         user_input_path = input(
             "Please input the directory path to scan for video files: "
@@ -16,6 +30,5 @@ if __name__ == "__main__":
         print("Starting directory scan & database processing...")
         app.execute_and_save_to_db(user_input_path)
     except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        sys.exit(1)  # Exit with an error status code
-        
+        logging.error(f"An unexpected error occurred: {e}")
+        sys.exit(1)

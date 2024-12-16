@@ -5,3 +5,4 @@ moviepy
 scikit-learn
 opencv-python-headless
 alembic
+python-dotenv

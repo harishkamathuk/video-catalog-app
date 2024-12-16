@@ -1,30 +1,30 @@
 import os
-from sqlalchemy.orm import declarative_base, sessionmaker
+from dotenv import load_dotenv
+from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import create_engine
 
-# Ensure the 'data' directory exists for database storage
-# TODO Move the location of the database to environment variable
-db_directory = os.path.join(os.getcwd(), "database")
-os.makedirs(db_directory, exist_ok=True)  # Create the directory if it doesn't exist
+# Load environment variables
+load_dotenv()
+
+# Retrieve database URL, raise an error if not set
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise EnvironmentError("DATABASE_URL environment variable is required but not set.")
 
 # Define Base (single instance)
 Base = declarative_base()
 
-# Path to SQLite database
-db_path = os.path.join(db_directory, "video_metadata.db")
-DATABASE_URL = f"sqlite:///{db_path}"
-
-# Create the SQLAlchemy engine
+# Configure database
 engine = create_engine(DATABASE_URL, echo=True)
 
-# Create a configured session class
+# Create session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def initialize_database(base):
     """
-    Ensures all tables defined in Base metadata are created.
+    Ensures all tables defined in the Base metadata are created.
     Args:
         base: Declarative base containing table definitions
     """
     base.metadata.create_all(bind=engine)
-    print("Database initialized at:", db_path)
+    print("Database initialized.")
