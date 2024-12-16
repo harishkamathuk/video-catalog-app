@@ -5,8 +5,6 @@ from sqlalchemy import create_engine
 
 from config.settings import config
 
-print(config)
-
 # Define Base (single instance)
 Base = declarative_base()
 
@@ -23,4 +21,4 @@ def initialize_database(base):
         base: Declarative base containing table definitions
     """
     base.metadata.create_all(bind=engine)
-    print("Database initialized.")
+    # print("Database initialized.")

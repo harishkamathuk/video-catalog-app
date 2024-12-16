@@ -31,7 +31,6 @@ class AppConfig:
         """
         value = os.getenv(var_name, default)
         # Log the environment variable loading
-        print(f"Loaded {var_name}: {value}")
         if not value:
             raise ConfigError(f"Required environment variable '{var_name}' is missing.")
         return value
