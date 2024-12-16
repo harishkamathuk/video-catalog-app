@@ -1,6 +1,7 @@
 # 🎥 Video Catalog & Management Application
 
 ## 🚀 Overview
+
 Welcome to the **Video Catalog & Management Application** repository!  
 This application will allow users to catalog, view, and manage videos stored on their desktop. Key features will include:
 
@@ -10,18 +11,23 @@ This application will allow users to catalog, view, and manage videos stored on 
 - Machine learning capabilities to identify potential duplicate videos.
 
 ## 🛠️ Features
+
 ### 1. Batch Video Processing
+
 - Scan a designated folder to extract metadata from videos.
 - Generate 2-3 thumbnails for quick previews during import.
 
 ### 2. GUI
+
 - A front-end interface for seamless video browsing.
 - Streaming functionality integrated into the app.
 
 ### 3. Machine Learning
+
 - ML-based analysis to detect duplicates based on file attributes, metadata, or content similarity.
 
 ## 💻 Tech Stack
+
 The **Video Catalog App** will utilize the following:
 
 - **Python** for backend logic.
@@ -37,7 +43,7 @@ Let's establish the initial repository structure for your video catalog applicat
 
 Here’s a scalable initial structure:
 
-```
+```plaintext
 video_catalog/
 │
 ├── main.py                     # Entry point for the application.
