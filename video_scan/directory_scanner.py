@@ -11,13 +11,12 @@ logging.basicConfig(
 
 class DirectoryScanner:
     """
-    Handles scanning directories for valid/invalid video files.
+    Handles scanning directories for valid video files and yields results.
     """
 
     def __init__(self, validation_strategy):
         """
-        Initializes DirectoryScanner with a validation strategy.
-
+        Initialize the scanner with a specific validation strategy.
         Args:
             validation_strategy: Strategy for validation logic.
         """
@@ -25,23 +24,24 @@ class DirectoryScanner:
 
     def scan(self, directory_path: str):
         """
-        Scans a given directory for valid video files and logs invalid ones.
+        Scans directory and yields valid video file paths.
 
         Args:
-            directory_path (str): The directory path to scan.
+            directory_path (str): Directory to scan.
+
+        Yields:
+            str: Full path to valid video file.
         """
         if not os.path.exists(directory_path):
             logging.error(f"Directory path does not exist: {directory_path}")
             print("Invalid directory path. Please check and try again.")
             return
 
-        print(f"Scanning directory: {directory_path}")
         for root, _, files in os.walk(directory_path):
             for file in files:
+                full_path = os.path.join(root, file)
                 if self.validation_strategy.validate(file):
-                    print(f"Valid video file found: {os.path.join(root, file)}")
+                    print(f"Valid video file: {full_path}")
+                    yield full_path
                 else:
-                    logging.info(f"Unsupported or invalid file type: {os.path.join(root, file)}")
-                    print(f"Unsupported file type: {os.path.join(root, file)}")
-
-        print("\nScan completed.")
+                    logging.info(f"Invalid or unsupported file type: {full_path}")
