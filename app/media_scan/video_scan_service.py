@@ -1,8 +1,8 @@
 import os
-from app.video_scan.video_repository import VideoRepository
-from app.video_scan.extension_strategy import ExtensionValidationStrategy
+from app.media_scan.media_repository import VideoRepository
+from app.media_scan.extension_strategy import ExtensionValidationStrategy
 from utils.directory_scanner import DirectoryScanner
-from app.exceptions.video_exceptions import VideoAlreadyExistsError
+from app.exceptions.media_exceptions import VideoAlreadyExistsError
 from dal.database import SessionLocal
 
 
