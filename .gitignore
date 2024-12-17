@@ -163,3 +163,4 @@ cython_debug/
 
 # Database location
 database/
+.vscode/settings.json

@@ -1,6 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 from dal.database import SessionLocal
-from models.video import Video
+from app.models.video import Video
 from app.exceptions.video_exceptions import VideoAlreadyExistsError
 
 

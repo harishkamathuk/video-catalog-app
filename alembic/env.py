@@ -11,7 +11,7 @@ from pathlib import Path
 # Add project root to the system path
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-from models.video import Base
+from app.models.video import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
