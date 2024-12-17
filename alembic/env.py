@@ -14,8 +14,6 @@ load_dotenv()
 # Get the DATABASE_URL from the environment variable
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-print(DATABASE_URL)
-
 if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL is not set in the environment or .env file.")
 
@@ -35,13 +33,16 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 # Import your models' Base metadata
-from app.models.media import Base as MediaBase
-from app.models.media_type import Base as MediaTypeBase
+from app.models import Base
 
 # Combine metadata for all models
-target_metadata = [MediaBase.metadata, MediaTypeBase.metadata]
+target_metadata = Base.metadata
 
+# DEBUG
+print(target_metadata.tables)
 
+# Set up Alembic's config object
+config.set_main_option('sqlalchemy.url', os.getenv('DATABASE_URL'))
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

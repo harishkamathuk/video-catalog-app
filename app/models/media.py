@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, String, BigInteger, DateTime, Float, ForeignKey
+
 from sqlalchemy.orm import relationship
-from app.models.media_type import Base
+
+from app.models import Base
 
 class Media(Base):
     """
