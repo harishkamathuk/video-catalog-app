@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String, BigInteger, DateTime, Float, ForeignKey
-
 from sqlalchemy.orm import relationship
-
-from app.models import Base
+from dal.database import Base  # Import Base from the single definition
 
 class Media(Base):
     """

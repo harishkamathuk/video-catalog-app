@@ -5,29 +5,21 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dal.database import initialize_database, Base
-from app.media_scan.services.media_scanner import MediaScanApp
-from app.media_scan.strategies.validation_strategy import (
-    VideoValidationStrategy,
-    AudioValidationStrategy,
-    ImageValidationStrategy,
-    CompositeValidationStrategy,
-)
+from app.media_scan.services.media_scanner import MediaScanner
+from app.media_scan.strategies.composite_strategy import CompositeValidationStrategy
+
 
 if __name__ == "__main__":
     try:
-        # Initialize the database schema
+        # Initialize database schema
         initialize_database(Base)
 
-        # Initialize media validation strategies
-        strategies = {
-            "video": VideoValidationStrategy(),
-            "audio": AudioValidationStrategy(),
-            "image": ImageValidationStrategy(),
-        }
-        composite_strategy = CompositeValidationStrategy(strategies)
+        # Dynamically create composite strategy
+        composite_strategy = CompositeValidationStrategy()
 
-        # Initialize main application logic
-        app = MediaScanApp(composite_strategy)
+        # Initialize MediaScanner with the strategy
+        app = MediaScanner(composite_strategy)
+
         user_input_path = input(
             "Please input the directory path to scan for media files: "
         ).strip()

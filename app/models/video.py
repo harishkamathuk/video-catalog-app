@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, TIMESTAMP, Text
 from sqlalchemy.orm import declarative_base
-from dal.database import Base  # Import shared Base instance
+from dal.database import Base  # Import Base from the single definition
+
 class Video(Base):
     __tablename__ = "videos"
 

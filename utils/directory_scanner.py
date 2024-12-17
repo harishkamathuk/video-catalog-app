@@ -33,11 +33,10 @@ class DirectoryScanner:
         Returns:
             str: Media type (e.g., 'video', 'audio', 'image') or None if unsupported.
         """
-        extension = os.path.splitext(file_name)[1].lower()
-        for media_type, strategy in self.validation_strategy.items():
-            if strategy.validate(file_name):
-                return media_type
-        return None
+        # Directly call the composite strategy's validation logic
+        media_type = self.validation_strategy.validate(file_name)
+        return media_type  # Either "video", "audio", "image", or None
+
 
     def scan(self, directory_path: str):
         """
