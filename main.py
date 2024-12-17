@@ -5,8 +5,8 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dal.database import initialize_database, Base
-from app.media_scan.media_scan_service import MediaScanApp
-from app.media_scan.validation_strategy import (
+from app.media_scan.services.media_scanner import MediaScanApp
+from app.media_scan.strategies.validation_strategy import (
     VideoValidationStrategy,
     AudioValidationStrategy,
     ImageValidationStrategy,
