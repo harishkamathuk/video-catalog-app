@@ -1,17 +1,24 @@
+import os
+
 from logging.config import fileConfig
 
+from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
 
-import sys
-from pathlib import Path
+# Load environment variables from .env
+load_dotenv()
 
-# Add project root to the system path
-sys.path.append(str(Path(__file__).resolve().parents[1]))
+# Get the DATABASE_URL from the environment variable
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-from app.models.video import Base
+print(DATABASE_URL)
+
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL is not set in the environment or .env file.")
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -26,7 +33,15 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = Base.metadata
+# target_metadata = None
+# Import your models' Base metadata
+from app.models.media import Base as MediaBase
+from app.models.media_type import Base as MediaTypeBase
+
+# Combine metadata for all models
+target_metadata = [MediaBase.metadata, MediaTypeBase.metadata]
+
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -11,3 +12,7 @@ class MediaType(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)  # Primary key for reference
     name = Column(String, nullable=False, unique=True)  # Media type name (e.g., video, image)
+
+    # Establish parent-child relationship
+    media = relationship("Media", back_populates="media_type")
+
