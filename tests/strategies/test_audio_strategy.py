@@ -107,3 +107,66 @@ def test_validate_non_audio_inputs(mock_audio_strategy):
     ]
     for file_name in invalid_inputs:
         assert mock_audio_strategy.validate(file_name) == False
+
+def test_validate_supported_extensions_without_mock():
+    """
+    Test that supported audio file extensions are validated as True.
+    """
+    audio_strategy = AudioValidationStrategy()
+    valid_files = ["test_song.mp3", "test_track.wav", "test_audio.flac", "test_sample.aac", "test_music.ogg"]
+    for file_name in valid_files:
+        assert audio_strategy.validate(file_name) is True
+
+def test_validate_unsupported_extensions_without_mock():
+    """
+    Test unsupported audio extensions return False.
+    """
+    audio_strategy = AudioValidationStrategy()
+    invalid_files = ["document.txt", "video.mp4", "image.jpg", "archive.zip"]
+    for file_name in invalid_files:
+        assert audio_strategy.validate(file_name) is False
+
+def test_validate_no_dot_string_without_mock():
+    """
+    Test strings that don't have dots at all.
+    """
+    audio_strategy = AudioValidationStrategy()
+    
+    # Edge case: No dot at all in filename
+    invalid_files = ["no_extension", "", "trackname", "file_with_no_valid_format"]
+    for file_name in invalid_files:
+        assert audio_strategy.validate(file_name) == False
+
+def test_validate_malformed_strings_without_mock():
+    """
+    Test strings that would trigger the except block, e.g., invalid formats or errors during split.
+    """
+    audio_strategy = AudioValidationStrategy()
+    malformed_inputs = [
+        "audio..mp3",  # Double dots
+        "track.mp3.mp3",  # Multiple extensions
+        ".mp3",  # Edge-case with only the dot
+        "song/track.mp3",  # Path-like structure
+    ]
+    for file_name in malformed_inputs:
+        assert audio_strategy.validate(file_name) == False
+
+def test_validate_edge_case_uppercase_without_mock():
+    """
+    Test case for uppercase file extensions and mixed-case extensions.
+    """
+    audio_strategy = AudioValidationStrategy()
+    assert audio_strategy.validate("song.MP3") == True
+    assert audio_strategy.validate("track.WaV") == True
+
+def test_validate_non_audio_inputs_without_mock():
+    """
+    Test that audio is only validated when explicitly matching known audio extensions.
+    """
+    audio_strategy = AudioValidationStrategy()
+    invalid_inputs = [
+        "random_file.pdf",  # Non-media
+        "image.jpeg",
+    ]
+    for file_name in invalid_inputs:
+        assert audio_strategy.validate(file_name) == False
