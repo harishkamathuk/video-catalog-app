@@ -1,0 +1,24 @@
+[run]
+# Directories to include for tracking coverage
+source = 
+    utils
+    dal
+    scripts
+
+# Paths to omit from coverage analysis
+omit =
+    tests/*
+    database/*
+
+[report]
+# Report settings
+show_missing = True
+
+[html]
+# Output directory for HTML reports
+directory = htmlcov
+
+[xml]
+# Output path for XML reports
+output = coverage.xml
+

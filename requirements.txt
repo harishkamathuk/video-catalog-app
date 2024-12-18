@@ -1,8 +1,24 @@
+# Application dependencies
+SQLAlchemy>=2.x
+FastAPI
 PyQt5
-SQLAlchemy
-ffmpeg-python
-moviepy
+ffmpeg-python>=0.2.0
+moviepy>=1.0.3
 scikit-learn
 opencv-python-headless
-alembic
 python-dotenv
+graphviz
+
+# Testing dependencies
+pytest>=6.x
+pytest-cov>=3.0
+pytest-mock>=3.10
+
+# Database
+alembic>=1.14.0
+psycopg2-binary  # If using PostgreSQL
+
+# Optional tools for profiling or linting
+black>=23.0  # Code formatting
+flake8>=6.0  # Linting
+mypy>=0.982  # Static type checking
