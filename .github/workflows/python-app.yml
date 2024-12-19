@@ -45,9 +45,8 @@ jobs:
         DATABASE_URL: ${{ vars.DATABASE_URL }}
         LOG_LEVEL:  ${{ vars.LOG_LEVEL }}
       run: |
-        pytest
-        pytest --cov --junitxml=junit.xml -o junit_family=legacy
-    
+        pytest --cov --cov-report=xml --cov-report=term --junitxml=junit.xml -o junit_family=legacy
+
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
