@@ -122,63 +122,12 @@ Here’s a **quick and efficient way** to complete this task with minimal overhe
 1.  **Create a Comparison Table**:
     
     -   Use a table format to summarize findings:
-        
-        Metric
-        
-        ffmpeg-python
-        
-        moviepy
-        
-        pymediainfo
-        
-        Duration
-        
-        ✅
-        
-        ✅
-        
-        ✅
-        
-        Resolution
-        
-        ✅
-        
-        ✅
-        
-        ✅
-        
-        Codec Type
-        
-        ✅
-        
-        ❌
-        
-        ✅
-        
-        File Size
-        
-        ✅
-        
-        ❌
-        
-        ✅
-        
-        Ease of Use
-        
-        Moderate
-        
-        Easy
-        
-        Moderate
-        
-        Dependencies
-        
-        FFmpeg CLI
-        
-        None
-        
-        MediaInfo CLI
-        
+     
+|Test 1 | Tset 2   |
+|--|--|
+| Output 1 |Output 2  |
+   
+       
 2.  **Highlight Pros and Cons**:
     
     -   Include observations from your testing.
@@ -225,5 +174,6 @@ Here’s a **quick and efficient way** to complete this task with minimal overhe
 
 Let me know if you'd like a detailed example for integration!
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDIwNjI5MjhdfQ==
+eyJoaXN0b3J5IjpbLTEwMDIyMzkyNTcsLTE0NDIwNjI5MjhdfQ
+==
 -->
