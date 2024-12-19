@@ -149,7 +149,10 @@ def test_scan_valid_media_files(mock_composite_strategy, mock_audio_strategy, mo
         (str(audio_file), "audio"),
         (str(unknown_file), "unknown"),
     ]
+    
 
     results = list(scanner.scan(tmp_path))
+    print(expected_results)
+    print(results)    
 
     assert results == expected_results
