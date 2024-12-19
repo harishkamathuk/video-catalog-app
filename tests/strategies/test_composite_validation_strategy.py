@@ -14,7 +14,7 @@ from app.media_scan.strategies.video_validation import VideoValidationStrategy
 from app.media_scan.strategies.image_validation import ImageValidationStrategy
 from app.media_scan.strategies.default_validation import DefaultValidationStrategy
 
-def test_validate_audio(composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
+def test_validate_audio(mock_composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
     """
     Test that CompositeValidationStrategy correctly validates an audio file.
 
@@ -32,12 +32,12 @@ def test_validate_audio(composite_strategy, mock_audio_strategy, mock_video_stra
     mock_image_strategy.validate.return_value = False
     mock_default_strategy.validate.return_value = False
 
-    media_type = composite_strategy.validate("test_song.mp3")
+    media_type = mock_composite_strategy.validate("test_song.mp3")
     assert media_type == "audio"
     mock_audio_strategy.validate.assert_called_once_with("test_song.mp3")
 
 
-def test_validate_video(composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
+def test_validate_video(mock_composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
     """
     Test that CompositeValidationStrategy correctly validates a video file.
 
@@ -55,12 +55,12 @@ def test_validate_video(composite_strategy, mock_audio_strategy, mock_video_stra
     mock_image_strategy.validate.return_value = False
     mock_default_strategy.validate.return_value = False
 
-    media_type = composite_strategy.validate("test_movie.mp4")
+    media_type = mock_composite_strategy.validate("test_movie.mp4")
     assert media_type == "video"
     mock_video_strategy.validate.assert_called_once_with("test_movie.mp4")
 
 
-def test_validate_image(composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
+def test_validate_image(mock_composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
     """
     Test that CompositeValidationStrategy correctly validates an image file.
 
@@ -78,12 +78,12 @@ def test_validate_image(composite_strategy, mock_audio_strategy, mock_video_stra
     mock_video_strategy.validate.return_value = False
     mock_default_strategy.validate.return_value = False
 
-    media_type = composite_strategy.validate("test_image.jpg")
+    media_type = mock_composite_strategy.validate("test_image.jpg")
     assert media_type == "image"
     mock_image_strategy.validate.assert_called_once_with("test_image.jpg")
 
 
-def test_validate_unknown(composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
+def test_validate_unknown(mock_composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
     """
     Test that CompositeValidationStrategy falls back to the default strategy 
     for unknown media files.
@@ -102,6 +102,6 @@ def test_validate_unknown(composite_strategy, mock_audio_strategy, mock_video_st
     mock_image_strategy.validate.return_value = False
     mock_default_strategy.validate.return_value = True
 
-    media_type = composite_strategy.validate("unknown_file.xyz")
+    media_type = mock_composite_strategy.validate("unknown_file.xyz")
     assert media_type == "unknown"
     mock_default_strategy.validate.assert_called_once_with("unknown_file.xyz")

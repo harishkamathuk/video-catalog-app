@@ -3,7 +3,7 @@ import os
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import create_engine
 
-from config.settings import config
+from app.media_scan.config.settings import config
 
 # Define Base (single instance)
 Base = declarative_base()

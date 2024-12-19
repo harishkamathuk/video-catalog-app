@@ -4,7 +4,7 @@ import os
 # Add the root directory to Python's search path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from dal.database import initialize_database, Base
+from app.media_scan.dal.database import initialize_database, Base
 from app.media_scan.services.media_scanner import MediaScanner
 from app.media_scan.strategies.composite_validation import CompositeValidationStrategy
 

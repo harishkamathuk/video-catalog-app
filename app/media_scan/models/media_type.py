@@ -1,4 +1,4 @@
-from dal.database import Base  # Import Base from the single definition
+from app.media_scan.dal.database import Base  # Import Base from the single definition
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship, Session
 

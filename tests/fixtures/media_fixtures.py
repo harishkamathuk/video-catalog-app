@@ -185,7 +185,7 @@ def mock_default_strategy():
 
 
 @pytest.fixture
-def composite_strategy(mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
+def mock_composite_strategy(mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy):
     """
     Provides a configured CompositeValidationStrategy instance with mocked sub-strategies.
 

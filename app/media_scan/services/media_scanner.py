@@ -1,14 +1,14 @@
 # app/media_scan/services/media_scanner.py
 import os
-from app.models.media_type import MediaType
+from app.media_scan.models.media_type import MediaType
 from utils.directory_scanner import DirectoryScanner
-from dal.database import SessionLocal
+from app.media_scan.dal.database import SessionLocal
 
 from app.media_scan.services.media_type import MediaTypeService
 from app.media_scan.repositories.media_repository import MediaRepository
 from app.media_scan.strategies.composite_validation import CompositeValidationStrategy
 
-from app.exceptions.media_exceptions import MediaAlreadyExistsError
+from app.media_scan.exceptions.media_exceptions import MediaAlreadyExistsError
 
 
 class MediaScanner:

@@ -33,7 +33,7 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 # Import your models' Base metadata
-from app.models import Base
+from app.media_scan.models import Base
 
 # Combine metadata for all models
 target_metadata = Base.metadata

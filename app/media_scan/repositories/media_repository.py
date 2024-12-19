@@ -1,8 +1,8 @@
 from sqlalchemy.exc import IntegrityError
-from dal.database import SessionLocal
-from app.models.media import Media
-from app.models.media_type import MediaType
-from app.exceptions.media_exceptions import MediaAlreadyExistsError, MediaTypeNotFoundError
+from app.media_scan.dal.database import SessionLocal
+from app.media_scan.models.media import Media
+from app.media_scan.models.media_type import MediaType
+from app.media_scan.exceptions.media_exceptions import MediaAlreadyExistsError, MediaTypeNotFoundError
 
 
 class MediaRepository:

@@ -1,6 +1,6 @@
 import pytest
-from tests.fixtures.database_fixtures import test_db_engine, test_db_session
-from tests.fixtures.media_fixtures import composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy
+from tests.fixtures.database_fixtures import test_db_engine,  test_db_tables, test_db_session
+from tests.fixtures.media_fixtures import mock_composite_strategy, mock_audio_strategy, mock_video_strategy, mock_image_strategy, mock_default_strategy
 
 @pytest.fixture(scope="session")
 def app_config():
