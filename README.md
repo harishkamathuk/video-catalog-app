@@ -1,6 +1,6 @@
 # Video Catalog & Management Application
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/harishkamathuk/video-catalog-app/:workflow?branch=python-app.yml&event=develop&style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/harishkamathuk/video-catalog-app/python-app.yml?branch=develop&style=flat)
 [![codecov](https://codecov.io/gh/harishkamathuk/video-catalog-app/branch/develop/graph/badge.svg?token=qpORAJCwwf)](https://codecov.io/gh/harishkamathuk/video-catalog-app)
 
 ## 📖 **Project Overview**
