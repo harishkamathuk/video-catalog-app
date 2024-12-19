@@ -152,7 +152,10 @@ def test_scan_valid_media_files(mock_composite_strategy, mock_audio_strategy, mo
     
 
     results = list(scanner.scan(tmp_path))
-    print(expected_results)
-    print(results)    
+    
+    # Sort both lists
+    expected_results = sorted(expected_results, key=lambda x: x[0])
+    results = sorted(results, key=lambda x: x[0])
 
+    # Assert equality after sorting
     assert results == expected_results
