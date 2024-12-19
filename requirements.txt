@@ -1,5 +1,5 @@
 # Application dependencies
-SQLAlchemy>=2.x
+SQLAlchemy>=2.0.0
 FastAPI
 PyQt5
 ffmpeg-python>=0.2.0
@@ -8,9 +8,10 @@ scikit-learn
 opencv-python-headless
 python-dotenv
 graphviz
+flake8 
 
 # Testing dependencies
-pytest>=6.x
+pytest>=6.0
 pytest-cov>=3.0
 pytest-mock>=3.10
 
