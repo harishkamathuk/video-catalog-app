@@ -1,10 +1,16 @@
 # Video Catalog & Management Application
 
+---
+
+[![codecov](https://codecov.io/gh/harishkamathuk/video-catalog-app/branch/develop/graph/badge.svg?token=qpORAJCwwf)](https://codecov.io/gh/harishkamathuk/video-catalog-app)
+
+---
+
 ## 📖 **Project Overview**
 
 The Video Catalog & Management Application is designed to organize, search, and stream video files stored on a desktop. It provides an intuitive GUI, batch processing for metadata extraction, and machine learning capabilities for duplicate detection. This application aims to simplify video file management by offering features like thumbnail generation, advanced filtering, and video previews.
 
----
+
 
 ## 🎯 **Project Goals**
 
