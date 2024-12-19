@@ -125,19 +125,20 @@ def test_scan_valid_media_files(mock_composite_strategy, mock_audio_strategy, mo
         The scan method yields the correct file paths and media types.
     """
     # Create temporary media files
+    image_file = tmp_path / "test_image.jpg"
     video_file = tmp_path / "test_movie.mp4"
     audio_file = tmp_path / "test_song.mp3"
-    image_file = tmp_path / "test_image.jpg"
     unknown_file = tmp_path / "unknown_file.xyz"
+
+    image_file.write_text("dummy content")
     video_file.write_text("dummy content")
     audio_file.write_text("dummy content")
-    image_file.write_text("dummy content")
     unknown_file.write_text("dummy content")
 
     # Set up mock return values for validation strategies
-    mock_audio_strategy.validate.side_effect = lambda x: x == "test_song.mp3"
-    mock_video_strategy.validate.side_effect = lambda x: x == "test_movie.mp4"
     mock_image_strategy.validate.side_effect = lambda x: x == "test_image.jpg"
+    mock_video_strategy.validate.side_effect = lambda x: x == "test_movie.mp4"
+    mock_audio_strategy.validate.side_effect = lambda x: x == "test_song.mp3"
     mock_default_strategy.validate.side_effect = lambda x: x == "unknown_file.xyz"
 
     scanner = DirectoryScanner(mock_composite_strategy)
