@@ -76,15 +76,13 @@ class VideoValidationStrategy(MediaValidationStrategy):
         if file_name.count('.') != 1:  # Reject filenames with multiple dots
             return False
 
+        # TODO: Implement regex for stricter validation
+        # TODO: Implement try-catch block for potential errors during split
         # Split and validate only the final extension
-        try:
-            name, ext = file_name.rsplit('.', 1)  # Split only at the last dot
-            
-            if name is None or name.strip() == "":  # Reject a filename that only has an extension
-                return False
-            if f".{ext.lower()}" in self.VIDEO_EXTENSIONS:
-                return True
+        name, ext = file_name.rsplit('.', 1)  # Split only at the last dot
+        
+        if name is None or name.strip() == "":  # Reject a filename that only has an extension
             return False
-        except ValueError:
-            # Handle edge cases when splitting fails
-            return False
+        if f".{ext.lower()}" in self.VIDEO_EXTENSIONS:
+            return True
+        return False

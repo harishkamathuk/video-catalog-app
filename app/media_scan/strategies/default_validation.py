@@ -1,6 +1,5 @@
 from app.media_scan.strategies.media_validation import MediaValidationStrategy
 
-
 class DefaultValidationStrategy(MediaValidationStrategy):
     """
     A catch-all strategy for unsupported or unknown file types.

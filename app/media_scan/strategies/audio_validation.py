@@ -94,16 +94,14 @@ class AudioValidationStrategy(MediaValidationStrategy):
         if file_name.count('.') != 1:  # Reject filenames with multiple dots
             return False
 
+
+        # TODO: Add try-except block for edge cases like no extension, etc.
         # Split and validate only the final extension
-        try:
-            name, ext = file_name.rsplit('.', 1)  # Split only at the last dot
-            
-            if name is None or name.strip() == "":  # Reject a filename that only has an extension
-                return False
-            if f".{ext.lower()}" in self.AUDIO_EXTENSIONS:
-                return True
+        name, ext = file_name.rsplit('.', 1)  # Split only at the last dot
+        
+        if name is None or name.strip() == "":  # Reject a filename that only has an extension
             return False
-        except ValueError:
-            # Handle edge cases when splitting fails
-            return False
+        if f".{ext.lower()}" in self.AUDIO_EXTENSIONS:
+            return True
+        return False
 

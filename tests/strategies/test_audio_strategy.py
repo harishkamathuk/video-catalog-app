@@ -170,3 +170,4 @@ def test_validate_non_audio_inputs_without_mock():
     ]
     for file_name in invalid_inputs:
         assert audio_strategy.validate(file_name) == False
+
