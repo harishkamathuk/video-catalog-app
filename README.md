@@ -1,10 +1,6 @@
 # Video Catalog & Management Application
 
----
-
 [![codecov](https://codecov.io/gh/harishkamathuk/video-catalog-app/branch/develop/graph/badge.svg?token=qpORAJCwwf)](https://codecov.io/gh/harishkamathuk/video-catalog-app)
-
----
 
 ## 📖 **Project Overview**
 
