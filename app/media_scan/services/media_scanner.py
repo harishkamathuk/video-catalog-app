@@ -6,7 +6,7 @@ from dal.database import SessionLocal
 
 from app.media_scan.services.media_type import MediaTypeService
 from app.media_scan.repositories.media_repository import MediaRepository
-from app.media_scan.strategies.composite_strategy import CompositeValidationStrategy
+from app.media_scan.strategies.composite_validation import CompositeValidationStrategy
 
 from app.exceptions.media_exceptions import MediaAlreadyExistsError
 

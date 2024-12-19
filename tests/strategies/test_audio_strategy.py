@@ -1,6 +1,6 @@
 # File: tests/strategies/test_audio_strategy.py
 import pytest
-from app.media_scan.strategies.audio_strategy import AudioValidationStrategy
+from app.media_scan.strategies.audio_validation import AudioValidationStrategy
 
 def test_validate_supported_extensions(mock_audio_strategy):
     """

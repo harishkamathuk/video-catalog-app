@@ -5,9 +5,9 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Make it easier to import strategies
-from app.media_scan.strategies.video_strategy import VideoValidationStrategy
-from app.media_scan.strategies.audio_strategy import AudioValidationStrategy
-from app.media_scan.strategies.image_strategy import ImageValidationStrategy
-from app.media_scan.strategies.composite_strategy import CompositeValidationStrategy
+from app.media_scan.strategies.video_validation import VideoValidationStrategy
+from app.media_scan.strategies.audio_validation import AudioValidationStrategy
+from app.media_scan.strategies.image_validation import ImageValidationStrategy
+from app.media_scan.strategies.composite_validation import CompositeValidationStrategy
 
 

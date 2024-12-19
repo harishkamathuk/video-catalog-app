@@ -1,4 +1,4 @@
-from app.media_scan.strategies.media_strategy import MediaValidationStrategy
+from app.media_scan.strategies.media_validation import MediaValidationStrategy
 
 
 class DefaultValidationStrategy(MediaValidationStrategy):
